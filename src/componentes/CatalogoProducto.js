@@ -12,7 +12,7 @@ function CatalogoProducto({ onSubmit }) {
 
   const handleChangeCatalogoProducto = (e) => {
     const { name, value, files } = e.target;
-    if (name === "fotoProducto") {
+    if (name === "photo") {
       setInputCatalogoProducto({
         ...inputCatalogoProducto,
         fotoProducto: files[0],
@@ -24,21 +24,6 @@ function CatalogoProducto({ onSubmit }) {
       });
     }
   };
-
-  /*const handleChangeProduct=(event) =>{
-      const {name, value}= event.target;
-      setInputProduct({
-        ...inputProduct,
-        [name] : value
-      });
-    };
-
-    const handleFileChange=(event) =>{
-      setInputProduct({
-        ...inputProduct,
-        fotoProducto: event.target.files[0]
-      });
-    };*/
 
   const handleSubmit = (event) => {
     event.preventDefault();

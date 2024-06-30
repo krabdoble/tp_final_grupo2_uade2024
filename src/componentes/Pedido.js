@@ -30,7 +30,7 @@ function Pedido() {
     setTarget(event.target);
 };
 
-//kkkkkkkkkkkkkkkkkkk
+
 const itemTemplate = (item) => {
   return (
       <div className="flex flex-wrap p-2 align-items-center gap-3">
@@ -46,11 +46,6 @@ const itemTemplate = (item) => {
       </div>
   );
 };
-
-const elSaldoTotal= id =>{
-  
-}
-//jjjjjjjjjjjjjjjjjjjjjjj
 
   return (
     <div>
@@ -139,5 +134,3 @@ const elSaldoTotal= id =>{
 }
 
 export default Pedido;
-
-//sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name"

@@ -11,16 +11,7 @@ import FormCliente from "./componentes/FormCliente";
 import CatalogoProducto from "./componentes/CatalogoProducto";
 import Pedido from "./componentes/Pedido";
 
-function App() {
-  /*const [data, setData] = useState([]);
-
-  const handleFormSubmit = (formData) => {
-    setData([...data, formData]);
-    //console.log(data);
-  };*/
-
-  //ListaProducto handleFormSubmit={handleFormSubmit} 
-  // data={data} 
+function App() { 
 
   return (
     <div className='container'>

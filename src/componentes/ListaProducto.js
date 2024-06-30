@@ -71,4 +71,4 @@ function ListaProducto() {
 }
 
 export default ListaProducto;
-//{JSON.stringify(productList)}
+

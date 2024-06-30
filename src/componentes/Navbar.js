@@ -18,5 +18,3 @@ function Navbar(){
 }
 
 export default Navbar;
-
-//<Link to='/MostrarDatos'>MostrarDatos</Link>
