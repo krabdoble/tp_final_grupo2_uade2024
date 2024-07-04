@@ -44,14 +44,14 @@ function ListaProducto() {
             window.location.href = `/listaproducto/${event.data.id}`;
           }}
         >
-          <Column field="id" header="Id"></Column>
+          <Column field="id" header="ID"></Column>
           <Column field="nombre" header="Nombre"></Column>
-          <Column field="seleccion" header="Seleccion"></Column>
-          <Column field="nombreComercial" header="Nombre Comercial"></Column>
-          <Column field="precioVenta" header="Precio de Venta"></Column>
+          <Column field="seleccion" header="Selección"></Column>
+          <Column field="nombreComercial" header="Nombre comercial"></Column>
+          <Column field="precioVenta" header="Precio de venta"></Column>
           <Column field="proveedor" header="Proveedor"></Column>
-          <Column field="precioCompra" header="Precio de Compra"></Column>
-          <Column field="fotoProducto" header="Foto del Producto"></Column>
+          <Column field="precioCompra" header="Precio de compra"></Column>
+          <Column field="fotoProducto" header="Foto del producto"></Column>
         </DataTable>
       </div>
 

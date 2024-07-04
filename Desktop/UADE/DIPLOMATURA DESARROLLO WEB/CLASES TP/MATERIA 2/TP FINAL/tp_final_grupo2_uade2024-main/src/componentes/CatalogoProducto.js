@@ -45,30 +45,34 @@ function CatalogoProducto({ onSubmit }) {
     <div>
       <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
-          <div>
+        <div className="row">
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="nombreComercial"
-              placeholder="nombre comercial de producto"
+              placeholder="Nombre comercial de producto"
               value={inputCatalogoProducto.nombreComercial}
               onChange={handleChangeCatalogoProducto}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="precioVenta"
-              placeholder="precio de venta"
+              placeholder="Precio de venta"
               value={inputCatalogoProducto.precioVenta}
               onChange={handleChangeCatalogoProducto}
             />
           </div>
-          <div>
+          </div>
+          <div className="col-md-12">
             <input
-            className="elegir-archivo"
+              className="elegir-archivo"
               type="file"
               name="fotoProducto"
-              placeholder="imagen del product"
+              placeholder="Imagen del producto"
               onChange={handleChangeCatalogoProducto}
             />
           </div>
@@ -79,9 +83,9 @@ function CatalogoProducto({ onSubmit }) {
 
       <div className="card">
         <DataTable value={catalogoList} tableStyle={{ minWidth: "50rem" }}>
-          <Column field="nombreComercial" header="NombreComercial"></Column>
-          <Column field="precioVenta" header="PrecioVenta"></Column>
-          <Column field="fotoProducto" header="FotoProducto"></Column>
+          <Column field="nombreComercial" header="Nombre comercial"></Column>
+          <Column field="precioVenta" header="Precio de venta"></Column>
+          <Column field="fotoProducto" header="Foto del producto"></Column>
         </DataTable>
       </div>
       <div className="row">

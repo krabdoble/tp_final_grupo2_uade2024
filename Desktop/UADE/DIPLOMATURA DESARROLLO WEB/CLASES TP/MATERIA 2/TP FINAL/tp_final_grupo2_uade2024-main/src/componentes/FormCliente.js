@@ -39,32 +39,37 @@ function FormCliente() {
       
       <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
-          <div>
+        <div className="row">
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="id"
               name="id"
-              placeholder="Id del cliente"
+              placeholder="ID del cliente"
               value={inputCliente.id}
               onChange={handleChangeCliente}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="nombre"
-              placeholder="nombre del cliente"
+              placeholder="Nombre del cliente"
               value={inputCliente.nombre}
               onChange={handleChangeCliente}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="cuit"
-              placeholder="cuit del cliente"
+              placeholder="CUIT del cliente"
               value={inputCliente.cuit}
               onChange={handleChangeCliente}
             />
+          </div>
           </div>
           <button className="boton-send" type="submit">Enviar</button>
         </form>
@@ -73,9 +78,9 @@ function FormCliente() {
 
       <div className="card">
         <DataTable value={clienteList} tableStyle={{ minWidth: "50rem" }}>
-          <Column field="id" header="Id"></Column>
-          <Column field="nombre" header="Nombre"></Column>
-          <Column field="cuit" header="Cuit"></Column>
+          <Column field="id" header="ID"></Column>
+          <Column field="nombre" header="Nombre del cliente"></Column>
+          <Column field="cuit" header="CUIT del cliente"></Column>
         </DataTable>
       </div>
 

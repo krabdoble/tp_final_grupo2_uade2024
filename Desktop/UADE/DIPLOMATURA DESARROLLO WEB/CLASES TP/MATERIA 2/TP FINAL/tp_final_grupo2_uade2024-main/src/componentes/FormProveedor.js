@@ -40,34 +40,40 @@ function FormProveedor({}) {
         <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
       </div>
     <div>
+      
       <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
-          <div>
+        <div className="row">
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="id"
               name="id"
-              placeholder="Id del proveedor"
+              placeholder="ID del proveedor"
               value={inputProveedor.id}
               onChange={handleChangeProveedor}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="nombre"
-              placeholder="nombre del proveedor"
+              placeholder="Nombre del proveedor"
               value={inputProveedor.nombre}
               onChange={handleChangeProveedor}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="cuit"
-              placeholder="cuit del proveedor"
+              placeholder="CUIT del proveedor"
               value={inputProveedor.cuit}
               onChange={handleChangeProveedor}
             />
+          </div>
           </div>
           <button className="boton-send" type="submit">Enviar</button>
         </form>
@@ -76,18 +82,18 @@ function FormProveedor({}) {
 
       <div className="card">
         <DataTable value={proveedorList} tableStyle={{ minWidth: "50rem" }}>
-          <Column field="id" header="Id"></Column>
-          <Column field="nombre" header="Nombre"></Column>
-          <Column field="cuit" header="Cuit"></Column>
+          <Column field="id" header="ID del proveedor"></Column>
+          <Column field="nombre" header="Nombre del proveedor"></Column>
+          <Column field="cuit" header="CUIT del proveedor"></Column>
         </DataTable>
       </div>
 
       <div>
         {proveedorList.map((value, index) => (
           <div key={index} className="card mt-2">
-            <p>el id del proveedor es {value.id}</p>
-            <p>el nombre del proveedor es {value.nombre}</p>
-            <p>el cuit del proveedor es {value.cuit}</p>
+            <p>El ID del proveedor es {value.id}</p>
+            <p>El nombre del proveedor es {value.nombre}</p>
+            <p>El CUIT del proveedor es {value.cuit}</p>
             <div>
               <button
                 type="submit"

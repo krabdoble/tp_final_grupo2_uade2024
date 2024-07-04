@@ -9,7 +9,7 @@ function Formulario({ onSubmit }) {
     precioVenta: "",
     proveedor: "",
     precioCompra: "",
-    fotoProducto: null // Cambié a null en lugar de [null]
+    fotoProducto: null
   });
 
   const handleChangeProduct = (e) => {
@@ -42,7 +42,7 @@ function Formulario({ onSubmit }) {
                 type="text"
                 className="form-control"
                 name="id"
-                placeholder="ID del Producto"
+                placeholder="ID del producto"
                 value={inputProduct.id}
                 onChange={handleChangeProduct}
               />
@@ -52,7 +52,7 @@ function Formulario({ onSubmit }) {
                 type="text"
                 className="form-control border-color: blueviolet ;"
                 name="nombre"
-                placeholder="Nombre del Producto"
+                placeholder="Nombre del producto"
                 value={inputProduct.nombre}
                 onChange={handleChangeProduct}
               />
@@ -62,7 +62,7 @@ function Formulario({ onSubmit }) {
                 type="text"
                 className="form-control"
                 name="nombreComercial"
-                placeholder="Nombre Comercial del Producto"
+                placeholder="Nombre comercial del producto"
                 value={inputProduct.nombreComercial}
                 onChange={handleChangeProduct}
               />
@@ -90,7 +90,7 @@ function Formulario({ onSubmit }) {
                 type="text"
                 className="form-control"
                 name="precioVenta"
-                placeholder="Precio de Venta"
+                placeholder="Precio de venta"
                 value={inputProduct.precioVenta}
                 onChange={handleChangeProduct}
               />
@@ -100,7 +100,7 @@ function Formulario({ onSubmit }) {
                 type="text"
                 className="form-control"
                 name="proveedor"
-                placeholder="Proveedor del Producto"
+                placeholder="Proveedor del producto"
                 value={inputProduct.proveedor}
                 onChange={handleChangeProduct}
               />
@@ -110,7 +110,7 @@ function Formulario({ onSubmit }) {
                 type="text"
                 className="form-control"
                 name="precioCompra"
-                placeholder="Precio de Compra"
+                placeholder="Precio de compra"
                 value={inputProduct.precioCompra}
                 onChange={handleChangeProduct}
               />

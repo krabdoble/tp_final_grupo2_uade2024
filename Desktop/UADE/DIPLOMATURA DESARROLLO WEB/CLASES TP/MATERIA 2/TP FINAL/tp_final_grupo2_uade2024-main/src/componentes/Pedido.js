@@ -59,61 +59,74 @@ const itemTemplate = (item) => {
     <div>
       <div className="d-flex justify-content-center align-item-center mb-3">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="row">
+         <div className="col-md-12">
           <input
+            className="form-control"
             type="number"
             name="id"
-            placeholder="Id de product"
+            placeholder="ID del producto"
             value={inputPedido.id}
             onChange={handleChangePedido}
           />
         </div>
         <div>
           <input
+            className="form-control"
             type="text"
             name="productoSelect"
-            placeholder="nombre producto seleccionado"
+            placeholder="Nombre del producto seleccionado"
             value={inputPedido.productoSelect}
             onChange={handleChangePedido}
           />
         </div>
         <div>
           <input
+            className="form-control"
             type="text"
             name="cliente"
-            placeholder="nombre del cliente"
+            placeholder="Nombre del cliente"
             value={inputPedido.cliente}
             onChange={handleChangePedido}
           />
         </div>
         <div>
-          <label>
-          <input
-            type="date"
-            name="fechaDeCarga"
-            placeholder="fecha de carga"
-            value={inputPedido.fechaDeCarga}
-            onChange={handleChangePedido}
-          /> Carga</label>
         </div>
+        <div className="row">
+  <div className="col-md-6">
+    <label htmlFor="fechaDeCarga">Fecha de carga</label>
+    <input
+      className="form-control"
+      type="date"
+      id="fechaDeCarga"
+      name="fechaDeCarga"
+      value={inputPedido.fechaDeCarga}
+      onChange={handleChangePedido}
+    />
+  </div>
+  <div className="col-md-6">
+    <label htmlFor="fechaDeEntrega">Fecha de entrega</label>
+    <input
+      className="form-control"
+      type="date"
+      id="fechaDeEntrega"
+      name="fechaDeEntrega"
+      value={inputPedido.fechaDeEntrega}
+      onChange={handleChangePedido}
+    />
+  </div>
+</div>
+
         <div>
-          <label>
           <input
-            type="date"
-            name="fechaDeEntrega"
-            placeholder="fecha de entrega"
-            value={inputPedido.fechaDeEntrega}
-            onChange={handleChangePedido}
-          /> Entrega</label>
-        </div>
-        <div>
-          <input
+            className="form-control"
             type="number"
             name="saldoTotal"
-            placeholder="el saldo del pedido"
+            placeholder="Saldo del pedido"
             value={inputPedido.saldoTotal}
             onChange={handleChangePedido}
           />
+        </div>
         </div>
         <button className="boton-send" type="submit">Enviar</button>
       </form>
@@ -127,12 +140,12 @@ const itemTemplate = (item) => {
         <div>
           {pedidoList.map((value,index)=>(
             <div key={index} className='card mt-3'>
-              <p>El id del pedido {value.id}</p>
+              <p>El ID del pedido {value.id}</p>
               <p>El producto seleccionado {value.productoSelect}</p>
               <p>El nombre del cliente {value.cliente}</p>
-              <p>La fecha de carga del pedido {value.fechaDeCarga}</p>
-              <p>La fecha de entrega del pedido {value.fechaDeEntrega}</p>
-              <p>El saldo total del pedido $ {value.saldoTotal}</p>
+              <p>Fecha de carga del pedido {value.fechaDeCarga}</p>
+              <p>Fecha de entrega del pedido {value.fechaDeEntrega}</p>
+              <p>Saldo total del pedido $ {value.saldoTotal}</p>
             </div>
           ))}
         </div>

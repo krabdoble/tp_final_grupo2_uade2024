@@ -19,7 +19,7 @@
   
   /*boton send*/
   .boton-send {
-    display: inline-block;
+    display: block;
     padding: 6px 10px;
     font-size: 15px;
     font-weight: bold;
@@ -35,7 +35,7 @@
 /*elegir archivo*/
 
 .elegir-archivo{
-    display: inline-block;
+    display: block;
     padding-top: 2px;
     font-size: 15px;
     font-weight: normal;
@@ -53,9 +53,10 @@
   color: blueviolet;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: #ffffff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  margin-top: 4px;
 
 }

@@ -22,7 +22,7 @@ function MostrarDatos({
   return (
     <div className="mt-4">
       <div>
-        <p>El id del producto es {id}</p>
+        <p>El ID del producto es {id}</p>
         <p>El nombre del producto es {nombre}</p>
         <p>La talla del producto es {seleccion}</p>
         <p>El nombre commercial del producto es {nombreComercial}</p>
