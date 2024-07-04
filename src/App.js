@@ -10,6 +10,7 @@ import FormProveedor from "./componentes/FormProveedor";
 import FormCliente from "./componentes/FormCliente";
 import CatalogoProducto from "./componentes/CatalogoProducto";
 import Pedido from "./componentes/Pedido";
+import Reportes from "./componentes/Reportes";
 
 function App() { 
 
@@ -42,6 +43,10 @@ function App() {
           <Route
             path="/pedido"
             element={<Pedido></Pedido>}
+          ></Route>
+          <Route
+            path="/reportes"
+            element={<Reportes></Reportes>}
           ></Route>
         </Routes>
       </BrowserRouter>
