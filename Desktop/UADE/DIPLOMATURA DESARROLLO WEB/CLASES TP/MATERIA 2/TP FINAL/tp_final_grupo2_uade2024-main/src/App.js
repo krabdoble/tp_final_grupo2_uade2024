@@ -75,7 +75,14 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+       <div className="container-fluid pie-index">
+     <footer className="footer">
+     <h5>Trabajo Práctico Final: <b>Grupo 2</b>.-</h5>
+     <p><i>Integrantes:</i> Artilles, Lautaro;  Cabral, Rodrigo;  Lamarre, Patrice;  Ronchi, Agustín;  Sánchez Rizzotti, Amanda;  Volante, Franco.</p>
+     </footer>
+   </div>
     </div>
+
   );
 }
 
