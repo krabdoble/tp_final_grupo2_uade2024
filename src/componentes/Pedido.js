@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { pedidos } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 
 function Pedido() {
   const [pedidoList, setPedidoList] = useState([]);
+
+  useEffect(() => {
+    setPedidoList(pedidos);
+  }, [])
+
   const [inputPedido, setInputPedido] = useState({
     id: "",
     productoSelect: "",
@@ -26,12 +32,12 @@ function Pedido() {
     setPedidoList([...pedidoList, inputPedido]);
   };
 
-  const eliminarPedido = (id) => {
-    const borrarPedido = pedidoList.filter(
-      (inputPedido) => inputPedido.id !== id
-    );
-    setPedidoList(borrarPedido);
-  };
+  // const eliminarPedido = (id) => {
+  //   const borrarPedido = pedidoList.filter(
+  //     (inputPedido) => inputPedido.id !== id
+  //   );
+  //   setPedidoList(borrarPedido);
+  // };
   return (
     <div>
       <h2 className="text-center">Datos de los clientes</h2>
@@ -103,7 +109,11 @@ function Pedido() {
       <hr />
 
       <div className="card">
-        <DataTable value={pedidoList} tableStyle={{ minWidth: "50rem" }}>
+        <DataTable value={pedidoList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/pedido/${event.data.id}`;
+          }}>
           <Column field="id" header="Id"></Column>
           <Column field="productoSelect" header="Producto select"></Column>
           <Column field="cliente" header="Cliente"></Column>
@@ -113,7 +123,7 @@ function Pedido() {
         </DataTable>
       </div>
 
-      <div>
+      {/* <div>
         {pedidoList.map((value, index) => (
           <div key={index} className="card mt-3">
             <p>El id del pedido {value.id}</p>
@@ -133,7 +143,7 @@ function Pedido() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 

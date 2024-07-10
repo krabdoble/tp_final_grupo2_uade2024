@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { clientes } from "../datos/Datos";
 
 function FormCliente() {
   const [clienteList, setClienteList] = useState([]);
+
+  useEffect(() => {
+    setClienteList(clientes)
+  }, [])
+
   const [inputCliente, setInputCliente] = useState({
     id: "",
     nombre: "",
@@ -23,12 +29,12 @@ function FormCliente() {
     setClienteList([...clienteList, inputCliente]);
   };
 
-  const eliminarCliente = (id) => {
-    const borrarCliente = clienteList.filter(
-      (inputCliente) => inputCliente.id !== id
-    );
-    setClienteList(borrarCliente);
-  };
+  // const eliminarCliente = (id) => {
+  //   const borrarCliente = clienteList.filter(
+  //     (inputCliente) => inputCliente.id !== id
+  //   );
+  //   setClienteList(borrarCliente);
+  // };
   return (
     <div>
       <h2 className="text-center">Datos de los clientes</h2>
@@ -67,14 +73,18 @@ function FormCliente() {
       <hr />
 
       <div className="card">
-        <DataTable value={clienteList} tableStyle={{ minWidth: "50rem" }}>
+        <DataTable value={clienteList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/formcliente/${event.data.id}`;
+          }}>
           <Column field="id" header="Id"></Column>
           <Column field="nombre" header="Nombre"></Column>
           <Column field="cuit" header="Cuit"></Column>
         </DataTable>
       </div>
 
-      <div>
+      {/* <div>
         {clienteList.map((value, index) => (
           <div key={index}>
             <p>el id del cliente es {value.id}</p>
@@ -91,7 +101,7 @@ function FormCliente() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

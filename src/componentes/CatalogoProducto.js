@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { pokemon } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import axios from "axios";
+// import axios from "axios";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 
-function CatalogoProducto({ onSubmit }) {
+function CatalogoProducto() {
   const handleSubmit = (item) => {
     setCatalogoList([...catalogoList, item]); //
   };
 
   const [catalogoList, setCatalogoList] = useState([]);
+
+  useEffect(() => {
+    setCatalogoList(pokemon)
+  }, [])
 
   const [pokemones, setPokemones] = useState([]);
 
@@ -93,8 +98,12 @@ function CatalogoProducto({ onSubmit }) {
         <hr />
 
         <div className="card">
-          <DataTable value={catalogoList} tableStyle={{ minWidth: "50rem" }}>
-            <Column field="name" header="NombreComercial"></Column>
+          <DataTable value={catalogoList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/catalogoproducto/${event.data.nombre}`;
+          }}>
+            <Column field="nombre" header="NombreComercial"></Column>
             <Column field={`precio`} header="PrecioVenta"></Column>
             <Column field={`img`} header="FotoProducto"></Column>
           </DataTable>

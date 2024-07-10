@@ -1,44 +1,35 @@
 import React from "react";
+import { useParams } from "react-router-dom"
+import { productos } from "./Datos";
 import "../estilos-pagina/mostrar.css";
 //import ListaProducto from "./ListaProducto";
 
-function MostrarDatos({
-  id,
-  nombre,
-  seleccion,
-  nombreComercial,
-  precioVenta,
-  proveedor,
-  precioCompra,
-  fotoProducto,
-  eliminarProducto,
-}) {
-  /* const [data, setElArray]= useState([])
+function DatosProducto() {
 
-    const recibirArray= (nuevoArray)=>{
-        setElArray(nuevoArray);
-    };
-*/
+  const { id } = useParams("id")
+  
+  const producto = productos.find(product => product.id === id)
+
   return (
     <div className="mt-4">
       <div>
-        <p>El id del producto es {id}</p>
-        <p>El nombre del producto es {nombre}</p>
-        <p>La talla del producto es {seleccion}</p>
-        <p>El nombre commercial del producto es {nombreComercial}</p>
-        <p>El precio de venta del producto es ${precioVenta}</p>
-        <p>El proveedor del producto es ${proveedor}</p>
-        <p>El precio de compra del producto es ${precioCompra}</p>
-        <p>Este es la imagen del producto es {fotoProducto}</p>
+        <p>El id del producto es {producto.id}</p>
+        <p>El nombre del producto es {producto.nombre}</p>
+        <p>La talla del producto es {producto.seleccion}</p>
+        <p>El nombre commercial del producto es {producto.nombreComercial}</p>
+        <p>El precio de venta del producto es ${producto.precioVenta}</p>
+        <p>El proveedor del producto es ${producto.proveedor}</p>
+        <p>El precio de compra del producto es ${producto.precioCompra}</p>
+        <p>Este es la imagen del producto es {producto.fotoProducto}</p>
       </div>
       <div>
-        <button
+        {/* <button
           type="submit"
           className="btn btn-danger"
-          onClick={() => eliminarProducto(id)}
+          onClick={() => eliminarProducto(producto.id)}
         >
-          delete id {id}
-        </button>
+          delete id {producto.id}
+        </button> */}
       </div>
 
      
@@ -46,7 +37,7 @@ function MostrarDatos({
   );
 }
 
-export default MostrarDatos;
+export default DatosProducto;
 
 /* <div>
         <table>

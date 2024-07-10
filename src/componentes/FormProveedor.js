@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { proveedores } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 //import TableProveedor from "./TableProveedor";
 
-function FormProveedor({}) {
+function FormProveedor() {
   const [proveedorList, setProveedorList] = useState([]);
+
+  useEffect(() => {
+    setProveedorList(proveedores)
+  }, [])
+
+
   const [inputProveedor, setInputProveedor] = useState({
     id: "",
     nombre: "",
@@ -24,12 +31,12 @@ function FormProveedor({}) {
     setProveedorList([...proveedorList, inputProveedor]);
   };
 
-  const eliminarProducto = (id) => {
-    const tareasActualizadas = proveedorList.filter(
-      (inputProveedor) => inputProveedor.id !== id
-    );
-    setProveedorList(tareasActualizadas);
-  };
+  // const eliminarProducto = (id) => {
+  //   const tareasActualizadas = proveedorList.filter(
+  //     (inputProveedor) => inputProveedor.id !== id
+  //   );
+  //   setProveedorList(tareasActualizadas);
+  // };
 
   return (
     <div>
@@ -69,14 +76,18 @@ function FormProveedor({}) {
       <hr />
 
       <div className="card">
-        <DataTable value={proveedorList} tableStyle={{ minWidth: "50rem" }}>
+        <DataTable value={proveedorList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/formproveedor/${event.data.id}`;
+          }}>
           <Column field="id" header="Id"></Column>
           <Column field="nombre" header="Nombre"></Column>
           <Column field="cuit" header="Cuit"></Column>
         </DataTable>
       </div>
 
-      <div>
+      {/* <div>
         {proveedorList.map((value, index) => (
           <div key={index} className="card mt-2">
             <p>el id del proveedor es {value.id}</p>
@@ -93,7 +104,7 @@ function FormProveedor({}) {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
