@@ -107,9 +107,9 @@ function CatalogoProducto() {
             console.log(event.data);
             window.location.href = `/catalogoproducto/${event.data.nombre}`;
           }}>
-            <Column field="nombre" header="NombreComercial"></Column>
-            <Column field={`precio`} header="PrecioVenta"></Column>
-            <Column field={`img`} header="FotoProducto"></Column>
+            <Column field="nombre" header="Nombre comercial"></Column>
+            <Column field={`precio`} header="Precio de venta"></Column>
+            <Column field={`img`} header="Foto del poducto"></Column>
           </DataTable>
         </div>
       </div>
