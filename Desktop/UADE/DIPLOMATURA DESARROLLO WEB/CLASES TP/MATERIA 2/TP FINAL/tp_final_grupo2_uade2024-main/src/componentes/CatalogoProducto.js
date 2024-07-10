@@ -109,7 +109,7 @@ function CatalogoProducto() {
           }}>
             <Column field="nombre" header="Nombre comercial"></Column>
             <Column field={`precio`} header="Precio de venta"></Column>
-            <Column field={`img`} header="Foto del poducto"></Column>
+            <Column field={`img`} header="Foto del producto"></Column>
           </DataTable>
         </div>
       </div>
