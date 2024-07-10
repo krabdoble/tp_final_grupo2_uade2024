@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import { PickList } from 'primereact/picklist';
+import React, { useState, useEffect } from "react";
+import { pedidos } from "../datos/Datos";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 
 import logoProducto from "./IMG COMPONENTES/pedido-01.png";
 
-
 function Pedido() {
   const [pedidoList, setPedidoList] = useState([]);
-  const [target, setTarget] = useState([]);
+
+  useEffect(() => {
+    setPedidoList(pedidos);
+  }, [])
+
   const [inputPedido, setInputPedido] = useState({
     id: "",
     productoSelect: "",
@@ -28,27 +33,7 @@ function Pedido() {
     event.preventDefault();
     setPedidoList([...pedidoList, inputPedido]);
   };
-  const onChange = (event) => {
-    setPedidoList(event.pedidoList);
-    setTarget(event.target);
-};
 
-
-const itemTemplate = (item) => {
-  return (
-      <div className="flex flex-wrap p-2 align-items-center gap-3">
-          <div className="flex-1 flex flex-column gap-2">
-              <div><span className="font-bold">{item.id}</span></div>
-              <div><span className="font-bold">{item.productoSelect}</span></div>
-              <div><span className="font-bold">{item.cliente}</span></div>
-              <div><span className="font-bold">{item.fechaDeCarga}</span></div>
-              <div><span className="font-bold">{item.fechaDeEntrega}</span></div>
-              
-          </div>
-          <span className="font-bold text-900">${item.saldoTotal}</span>
-      </div>
-  );
-};
 
   return (
 <div className="container">
@@ -56,7 +41,6 @@ const itemTemplate = (item) => {
         <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
       </div>
 
-    <div>
       <div className="d-flex justify-content-center align-item-center mb-3">
       <form onSubmit={handleSubmit}>
         <div className="row">
@@ -131,25 +115,22 @@ const itemTemplate = (item) => {
         <button className="boton-send" type="submit">Enviar</button>
       </form>
       </div>
+      <hr />
 
       <div className="card">
-            <PickList dataKey="id" source={pedidoList} target={target} onChange={onChange} itemTemplate={itemTemplate}  breakpoint="1280px"
-                sourceHeader="Available" targetHeader="Selected" sourceStyle={{ height: '24rem' }} targetStyle={{ height: '24rem' }}
-                 />
-        </div>
-        <div>
-          {pedidoList.map((value,index)=>(
-            <div key={index} className='card mt-3'>
-              <p>El ID del pedido {value.id}</p>
-              <p>El producto seleccionado {value.productoSelect}</p>
-              <p>El nombre del cliente {value.cliente}</p>
-              <p>Fecha de carga del pedido {value.fechaDeCarga}</p>
-              <p>Fecha de entrega del pedido {value.fechaDeEntrega}</p>
-              <p>Saldo total del pedido $ {value.saldoTotal}</p>
-            </div>
-          ))}
-        </div>
-    </div>
+        <DataTable value={pedidoList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/pedido/${event.data.id}`;
+          }}>
+          <Column field="id" header="ID"></Column>
+          <Column field="productoSelect" header="Producto seleccionado"></Column>
+          <Column field="cliente" header="Nombre del cliente"></Column>
+          <Column field="fechaDeCarga" header="Fecha de carga"></Column>
+          <Column field="fechaDeEntrega" header="Fecha de entrega"></Column>
+          <Column field="saldoTotal" header="Saldo total"></Column>
+        </DataTable>
+      </div>
     </div>
   );
 }

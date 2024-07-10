@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { proveedores } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-//import TableProveedor from "./TableProveedor";
 
 import logoProducto from "./IMG COMPONENTES/proveedor-01.png";
 
-
-function FormProveedor({}) {
+function FormProveedor() {
   const [proveedorList, setProveedorList] = useState([]);
+
+  useEffect(() => {
+    setProveedorList(proveedores)
+  }, [])
+
+
   const [inputProveedor, setInputProveedor] = useState({
     id: "",
     nombre: "",
@@ -27,20 +32,19 @@ function FormProveedor({}) {
     setProveedorList([...proveedorList, inputProveedor]);
   };
 
-  const eliminarProducto = (id) => {
-    const tareasActualizadas = proveedorList.filter(
-      (inputProveedor) => inputProveedor.id !== id
-    );
-    setProveedorList(tareasActualizadas);
-  };
+  // const eliminarProducto = (id) => {
+  //   const tareasActualizadas = proveedorList.filter(
+  //     (inputProveedor) => inputProveedor.id !== id
+  //   );
+  //   setProveedorList(tareasActualizadas);
+  // };
 
   return (
     <div className="container">
       <div className="logo-container">
         <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
       </div>
-    <div>
-      
+
       <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
         <div className="row">
@@ -81,32 +85,16 @@ function FormProveedor({}) {
       <hr />
 
       <div className="card">
-        <DataTable value={proveedorList} tableStyle={{ minWidth: "50rem" }}>
-          <Column field="id" header="ID del proveedor"></Column>
+        <DataTable value={proveedorList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/formproveedor/${event.data.id}`;
+          }}>
+          <Column field="id" header="ID"></Column>
           <Column field="nombre" header="Nombre del proveedor"></Column>
-          <Column field="cuit" header="CUIT del proveedor"></Column>
+          <Column field="cuit" header="CUIT"></Column>
         </DataTable>
       </div>
-
-      <div>
-        {proveedorList.map((value, index) => (
-          <div key={index} className="card mt-2">
-            <p>El ID del proveedor es {value.id}</p>
-            <p>El nombre del proveedor es {value.nombre}</p>
-            <p>El CUIT del proveedor es {value.cuit}</p>
-            <div>
-              <button
-                type="submit"
-                className="btn btn-danger"
-                onClick={() => eliminarProducto(value.id)}
-              >
-                delete id {value.id}
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
     </div>
   );
 }

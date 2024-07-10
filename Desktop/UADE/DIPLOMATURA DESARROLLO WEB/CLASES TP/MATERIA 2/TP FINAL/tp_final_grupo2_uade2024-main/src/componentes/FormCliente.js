@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { clientes } from "../datos/Datos";
 
 import logoProducto from "./IMG COMPONENTES/cliente-01.png";
 
+
 function FormCliente() {
   const [clienteList, setClienteList] = useState([]);
+
+  useEffect(() => {
+    setClienteList(clientes)
+  }, [])
+
   const [inputCliente, setInputCliente] = useState({
     id: "",
     nombre: "",
@@ -25,19 +32,13 @@ function FormCliente() {
     setClienteList([...clienteList, inputCliente]);
   };
 
-  const eliminarCliente = (id) => {
-    const borrarCliente = clienteList.filter(
-      (inputCliente) => inputCliente.id !== id
-    );
-    setClienteList(borrarCliente);
-  };
   return (
-      <div className="container">
+<div className="container">
         <div className="logo-container">
          <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
         </div>
-      
-      <div className="d-flex justify-content-center align-item-center">
+
+        <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-md-12">
@@ -77,30 +78,15 @@ function FormCliente() {
       <hr />
 
       <div className="card">
-        <DataTable value={clienteList} tableStyle={{ minWidth: "50rem" }}>
+        <DataTable value={clienteList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
+          onRowClick={(event) => {
+            console.log(event.data);
+            window.location.href = `/formcliente/${event.data.id}`;
+          }}>
           <Column field="id" header="ID"></Column>
           <Column field="nombre" header="Nombre del cliente"></Column>
-          <Column field="cuit" header="CUIT del cliente"></Column>
+          <Column field="cuit" header="CUIT"></Column>
         </DataTable>
-      </div>
-
-      <div>
-        {clienteList.map((value, index) => (
-          <div key={index}>
-            <p>el id del cliente es {value.id}</p>
-            <p>el nombre del cliente es {value.nombre}</p>
-            <p>el cuit del cliente es {value.cuit}</p>
-            <div>
-              <button
-                type="submit"
-                className="btn btn-danger"
-                onClick={() => eliminarCliente(value.id)}
-              >
-                delete id {value.id}
-              </button>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

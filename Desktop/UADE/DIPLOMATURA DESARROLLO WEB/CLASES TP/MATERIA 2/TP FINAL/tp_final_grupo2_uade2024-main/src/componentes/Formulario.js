@@ -1,39 +1,39 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function Formulario({ onSubmit }) {
-  const [inputProduct, setInputProduct] = useState({
-    id: "",
-    nombre: "",
-    nombreComercial: "",
-    seleccion: "",
-    precioVenta: "",
-    proveedor: "",
-    precioCompra: "",
-    fotoProducto: null
-  });
+function Formulario({onSubmit}){
+    const [inputProduct, setInputProduct]= useState({
+        id: '',
+        nombre: '',
+        nombreComercial: '',
+        seleccion:'',
+        precioVenta: '',
+        proveedor: '',
+        precioCompra: '',
+        fotoProducto: [null]
+    })
 
-  const handleChangeProduct = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "fotoProducto") {
-      setInputProduct({
-        ...inputProduct,
-        fotoProducto: files[0]
-      });
-    } else {
-      setInputProduct({
-        ...inputProduct,
-        [name]: value
-      });
+    const handleChangeProduct = (e) => {
+      const { name, value, files } = e.target;
+      if (name === 'photo') {
+          setInputProduct({
+              ...inputProduct,
+              fotoProducto: files[0]
+          });
+      } else {
+          setInputProduct({
+              ...inputProduct,
+              [name]: value
+          });
+      }
+  }
+
+    const handleSubmit=(event) =>{
+      event.preventDefault();
+      onSubmit(inputProduct)
     }
-  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(inputProduct);
-  };
-
-  return (
-    <div className="container">
+    return(
+      <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-md-6">
@@ -132,7 +132,7 @@ function Formulario({ onSubmit }) {
         </div>
       </form>
     </div>
-  );
+    )
 }
 
-export default Formulario;
+export default Formulario
