@@ -29,12 +29,12 @@ function FormCliente() {
     setClienteList([...clienteList, inputCliente]);
   };
 
-  // const eliminarCliente = (id) => {
-  //   const borrarCliente = clienteList.filter(
-  //     (inputCliente) => inputCliente.id !== id
-  //   );
-  //   setClienteList(borrarCliente);
-  // };
+   const eliminarCliente = (id) => {
+     const borrarCliente = clienteList.filter(
+       (inputCliente) => inputCliente.id !== id
+     );
+     setClienteList(borrarCliente);
+   };
   return (
     <div>
       <h2 className="text-center">Datos de los clientes</h2>
@@ -84,9 +84,9 @@ function FormCliente() {
         </DataTable>
       </div>
 
-      {/* <div>
+      { <div>
         {clienteList.map((value, index) => (
-          <div key={index}>
+          <div key={index} className="card mt-2">
             <p>el id del cliente es {value.id}</p>
             <p>el nombre del cliente es {value.nombre}</p>
             <p>el cuit del cliente es {value.cuit}</p>
@@ -96,12 +96,12 @@ function FormCliente() {
                 className="btn btn-danger"
                 onClick={() => eliminarCliente(value.id)}
               >
-                delete id {value.id}
+                delete
               </button>
             </div>
           </div>
         ))}
-      </div> */}
+      </div>}
     </div>
   );
 }

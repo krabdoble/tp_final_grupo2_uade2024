@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { pokemon } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-// import axios from "axios";
+import axios from "axios";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 
 function CatalogoProducto() {
   const handleSubmit = (item) => {
-    setCatalogoList([...catalogoList, item]); //
+    setCatalogoList([...catalogoList, item]); 
   };
 
   const [catalogoList, setCatalogoList] = useState([]);

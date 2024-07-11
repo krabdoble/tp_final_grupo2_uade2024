@@ -3,6 +3,7 @@ import Formulario from "./Formulario";
 import { productos } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import MostrarDatos from "./MostrarDatos";
 
 function ListaProducto() {
   const [productList, setProductList] = useState([]);
@@ -16,12 +17,12 @@ function ListaProducto() {
     console.log(formData);
   };
 
-  // const eliminarProducto = (id) => {
-  //   const tareasActualizadas = productList.filter(
-  //     (formData) => formData.id !== id
-  //   );
-  //   setProductList(tareasActualizadas);
-  // };
+   const eliminarProducto = (id) => {
+     const tareasActualizadas = productList.filter(
+       (formData) => formData.id !== id
+     );
+     setProductList(tareasActualizadas);
+   };
 
   return (
     <>
@@ -51,11 +52,11 @@ function ListaProducto() {
           <Column field="fotoProducto" header="FotoProducto"></Column>
         </DataTable>
       </div>
-      {/* <div>
+      { <div>
         <div className="row">
           {productList.map((value, index) => (
             <div key={index} className="card mt-2">
-              <DatosProducto
+              <MostrarDatos
                 id={value.id}
                 nombre={value.nombre}
                 nombreComercial={value.nombreComercial}
@@ -69,7 +70,7 @@ function ListaProducto() {
             </div>
           ))}
         </div>
-      </div> */}
+      </div> }
     </>
   );
 }
