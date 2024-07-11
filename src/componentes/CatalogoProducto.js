@@ -101,7 +101,7 @@ function CatalogoProducto() {
           <DataTable value={catalogoList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
           onRowClick={(event) => {
             console.log(event.data);
-            window.location.href = `/catalogoproducto/${event.data.nombre}`;
+            window.location.href = `/catalogoproducto/${event.data.name}`;
           }}>
             <Column field={`name`} header="NombreComercial"></Column>
             <Column field={`precio`} header="PrecioVenta"></Column>

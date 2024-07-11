@@ -7,12 +7,12 @@ function DatosCatalogo() {
 
   const { nombre } = useParams("nombre")
   
-  const poke = pokemon.find(prov => prov.nombre === nombre)
+  const poke = pokemon.find(prov => prov.name === nombre)
 
   return (
     <div className="mt-4">
       <div>
-        <p>El nombre del pokemon es {poke.nombre}</p>
+        <p>El nombre del pokemon es {poke.name}</p>
         <p>El precio del pokemon es {poke.precio}</p>
         <p>La imagen del pokemon es {poke.img}</p>
       </div>
