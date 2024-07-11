@@ -2,7 +2,7 @@ export const productos = [
     {
         id: '1',
         nombre: 'Product 1',
-        seleccion: 'XS',
+        seleccion: 'Evolucion-1',
         nombreComercial: 10,
         precioVenta: 40,
         proveedor: "Marcos",
@@ -12,7 +12,7 @@ export const productos = [
     {
         id: '2',
         nombre: 'Product 2',
-        seleccion: 'M',
+        seleccion: 'Evolucion-2',
         nombreComercial: 15,
         precioVenta: 45,
         proveedor: "Daniel",
@@ -22,7 +22,7 @@ export const productos = [
     {
         id: '3',
         nombre: 'Product 3',
-        seleccion: 'S',
+        seleccion: 'Evolucion-3',
         nombreComercial: 23,
         precioVenta: 235,
         proveedor: "María",

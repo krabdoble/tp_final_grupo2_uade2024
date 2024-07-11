@@ -106,7 +106,7 @@ function FormCliente() {
                 className="btn btn-secondary"
                 onClick={() => eliminarCliente(value.id)}
               >
-                delete
+                Delete
               </button>
             </div>
           </div>

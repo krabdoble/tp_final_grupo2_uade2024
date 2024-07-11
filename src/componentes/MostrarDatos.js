@@ -31,7 +31,7 @@ function MostrarDatos({
           className="btn btn-secondary"
           onClick={() => eliminarProducto(id)}
         >
-          delete
+          Delete
         </button>
       </div>
 

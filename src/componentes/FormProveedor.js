@@ -110,7 +110,7 @@ function FormProveedor() {
                 className="btn btn-secondary"
                 onClick={() => eliminarProducto(value.id)}
               >
-                delete
+                Delete
               </button>
             </div>
           </div>

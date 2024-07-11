@@ -68,7 +68,7 @@ function Formulario({onSubmit}){
               />
             </div>
             <div className="form-group">
-              <label>Talle:</label>
+              <label>Evolución:</label>
               <select
                 className="form-control"
                 name="seleccion"
@@ -76,11 +76,9 @@ function Formulario({onSubmit}){
                 onChange={handleChangeProduct}
               >
                 <option value="">...</option>
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
+                <option value="Evolucion-1">1</option>
+                <option value="Evolucion-2">2</option>
+                <option value="Evolucion-3">3</option>
               </select>
             </div>
           </div>

@@ -153,7 +153,7 @@ function Pedido() {
                 className="btn btn-secondary"
                 onClick={() => eliminarPedido(value.id)}
               >
-                delete
+                Delete
               </button>
             </div>
           </div>
