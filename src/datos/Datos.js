@@ -25,7 +25,7 @@ export const productos = [
         seleccion: 'S',
         nombreComercial: 23,
         precioVenta: 235,
-        proveedor: "Maria",
+        proveedor: "María",
         precioCompra: 95,
         fotoProducto: "url"
     }
@@ -44,7 +44,7 @@ export const proveedores = [
     },
     {
         id: "3",
-        nombre: 'Maria',
+        nombre: 'María',
         cuit: 32975
     }
 ]
@@ -52,7 +52,7 @@ export const proveedores = [
 export const clientes = [
     {
         id: "1",
-        nombre: "Gaston",
+        nombre: "Gastón",
         cuit: 23679
     },
     {
@@ -69,17 +69,17 @@ export const clientes = [
 
 export const pokemon = [
     {
-        name: "charmander",
+        name: "Charmander",
         precio: 62,
         img: "img"
     },
     {
-        name: "ivysaur",
+        name: "Ivysaur",
         precio: 142,
         img: "img"
     },
     {
-        name: "charizard",
+        name: "Charizard",
         precio: 267,
         img: "img"
     }
@@ -88,15 +88,15 @@ export const pokemon = [
 export const pedidos = [
     {
         id: "01",
-        productoSelect: "charmander",
-        cliente: "Gaston",
+        productoSelect: "Charmander",
+        cliente: "Gastón",
         fechaDeCarga: "11/07/2024",
         fechaDeEntrega: "14/07/2024",
         saldoTotal: "62"
     },
     {
         id: "02",
-        productoSelect: "ivysaur",
+        productoSelect: "Ivysaur",
         cliente: "Rodrigo",
         fechaDeCarga: "11/07/2024",
         fechaDeEntrega: "15/07/2024",
@@ -104,7 +104,7 @@ export const pedidos = [
     },
     {
         id: "03",
-        productoSelect: "charizard",
+        productoSelect: "Charizard",
         cliente: "Manuel",
         fechaDeCarga: "11/07/2024",
         fechaDeEntrega: "17/07/2024",

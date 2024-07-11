@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { proveedores } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-//import TableProveedor from "./TableProveedor";
+
+import logoProducto from "./IMG COMPONENTES/proveedor-01.png";
 
 function FormProveedor() {
   const [proveedorList, setProveedorList] = useState([]);
@@ -39,40 +40,48 @@ function FormProveedor() {
    };
 
   return (
-    <div>
-      <h2 className="text-center">Datos de los proveedores</h2>
-      <div className="d-flex justify-content-center align-item-center">
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type="id"
-              name="id"
-              placeholder="Id del proveedor"
-              value={inputProveedor.id}
-              onChange={handleChangeProveedor}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="nombre"
-              placeholder="nombre del proveedor"
-              value={inputProveedor.nombre}
-              onChange={handleChangeProveedor}
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="cuit"
-              placeholder="cuit del proveedor"
-              value={inputProveedor.cuit}
-              onChange={handleChangeProveedor}
-            />
-          </div>
-          <button type="submit">Send</button>
-        </form>
-      </div>
+    <div className="container">
+    <div className="logo-container">
+      <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
+    </div>
+
+    <div className="d-flex justify-content-center align-item-center">
+      <form onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="col-md-12">
+          <input
+            className="form-control"
+            type="id"
+            name="id"
+            placeholder="ID del proveedor"
+            value={inputProveedor.id}
+            onChange={handleChangeProveedor}
+          />
+        </div>
+        <div className="col-md-12">
+          <input
+            className="form-control"
+            type="text"
+            name="nombre"
+            placeholder="Nombre del proveedor"
+            value={inputProveedor.nombre}
+            onChange={handleChangeProveedor}
+          />
+        </div>
+        <div className="col-md-12">
+          <input
+            className="form-control"
+            type="text"
+            name="cuit"
+            placeholder="CUIT del proveedor"
+            value={inputProveedor.cuit}
+            onChange={handleChangeProveedor}
+          />
+        </div>
+        </div>
+        <button className="boton-send" type="submit">Enviar</button>
+      </form>
+    </div>
       <hr />
 
       <div className="card">
@@ -81,22 +90,24 @@ function FormProveedor() {
             console.log(event.data);
             window.location.href = `/formproveedor/${event.data.id}`;
           }}>
-          <Column field="id" header="Id"></Column>
+          <Column field="id" header="ID"></Column>
           <Column field="nombre" header="Nombre"></Column>
-          <Column field="cuit" header="Cuit"></Column>
+          <Column field="cuit" header="CUIT"></Column>
         </DataTable>
       </div>
 
       { <div>
         {proveedorList.map((value, index) => (
-          <div key={index} className="card mt-2">
-            <p>el id del proveedor es {value.id}</p>
-            <p>el nombre del proveedor es {value.nombre}</p>
-            <p>el cuit del proveedor es {value.cuit}</p>
+          <div className="card">
+          <div key={index} className="mg-4">
+            <p>El ID del proveedor es {value.id}</p>
+            <p>El nombre del proveedor es {value.nombre}</p>
+            <p>El CUIT del proveedor es {value.cuit}</p>
+            </div>
             <div>
               <button
                 type="submit"
-                className="btn btn-danger"
+                className="btn btn-secondary"
                 onClick={() => eliminarProducto(value.id)}
               >
                 delete

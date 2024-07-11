@@ -8,7 +8,7 @@ function Navbar(){
             <Link className="Link" to='/listaproducto'>Producto</Link>
             <Link className="Link" to='/formproveedor'>Proveedor</Link>
             <Link className="Link" to='/formcliente'>Cliente</Link>
-            <Link className="Link" to='/catalogoproducto'>CatalogoProducto</Link>
+            <Link className="Link" to='/catalogoproducto'>Catálogo</Link>
             <Link className="Link" to='/pedido'>Pedido</Link>
             <Link className="Link" to='/reportes'>Reportes</Link>
             

@@ -1,9 +1,6 @@
-// import logo from "./logo.svg";
 import "./App.css";
-// import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./componentes/Navbar";
-//import Formulario from './componentes/Formulario';
 import ListaProducto from "./componentes/ListaProducto";
 import DatosProducto from "./datos/DatosProducto";
 import FormProveedor from "./componentes/FormProveedor";
@@ -16,11 +13,18 @@ import Pedido from "./componentes/Pedido";
 import DatosPedido from "./datos/DatosPedido";
 import Reportes from "./componentes/Reportes";
 
+//pokelogo
+import logoPoke from "./IMG/poke logo.png"; 
+
 function App() { 
 
   return (
+
+    <div className='background-app'>
     <div className='container'>
-      <h2 className="d-flex justify-content-center align-item-center">Welcome to my page</h2>
+      <div className="logo-container">
+        <img src={logoPoke} alt="Logo" className="app-logo" />
+      </div> 
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -70,6 +74,13 @@ function App() {
           ></Route>
         </Routes>
       </BrowserRouter>
+      </div>
+       <div className="container-fluid pie-index">
+     <footer className="footer">
+     <h5>Trabajo Práctico Final: <b>Grupo 2</b>.-</h5>
+     <p><i>Integrantes:</i> Artilles, Lautaro;  Cabral, Rodrigo;  Lamarre, Patrice;  Ronchi, Agustín;  Sánchez Rizzotti, Amanda;  Volante, Franco.</p>
+     </footer>
+    </div>
     </div>
   );
 }

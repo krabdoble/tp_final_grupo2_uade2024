@@ -1,17 +1,65 @@
-table,th,td{
-    border: 2px solid red;
+/*logos secciones*/
+.logo-container- {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 5px; 
+  }
+  .producto-logo {
+    width: 200px;
+    height: auto; 
+  }
+
+
+  
+  /*boton send*/
+  .boton-send {
+    display: block;
+    padding: 6px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    background-color: #fdc00d;
+    margin: 4px
 }
-th,td{
-    padding: 10px;
+.boton-send:hover {
+    background-color: #2e4595;
+    color: white; 
 }
 
-th{
-    height: 50px;
-    text-align: center;
+/*elegir archivo*/
+
+.elegir-archivo{
+    display: block;
+    padding-top: 2px;
+    font-size: 15px;
+    font-weight: normal;
+    color: black;
+    background-color:  #dccffd;
+    margin: 1px
 }
-td{
-    text-align: center;
+
+/*formulario*/ 
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  color: blueviolet;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-top: 4px;
+
 }
-tr:hover{
-    background-color: blue;
+
+/*footer*/
+
+.footer{
+  margin-top: 20px;
+  color: blueviolet;
 }

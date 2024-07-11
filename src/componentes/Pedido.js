@@ -3,6 +3,8 @@ import { pedidos } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 
+import logoProducto from "./IMG COMPONENTES/pedido-01.png";
+
 function Pedido() {
   const [pedidoList, setPedidoList] = useState([]);
 
@@ -39,71 +41,83 @@ function Pedido() {
      setPedidoList(borrarPedido);
    };
   return (
-    <div>
-      <h2 className="text-center">Datos de los clientes</h2>
+    <div className="container">
+      <div className="logo-container">
+        <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
+      </div>
       <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
+        <div className="row">
+         <div className="col-md-12">
+          <input
+            className="form-control"
+            type="number"
+            name="id"
+            placeholder="ID del producto"
+            value={inputPedido.id}
+            onChange={handleChangePedido}
+          />
+        </div>
           <div>
             <input
-              type="number"
-              name="id"
-              placeholder="Id de product"
-              value={inputPedido.id}
-              onChange={handleChangePedido}
-            />
-          </div>
-          <div>
-            <input
+              className="form-control"
               type="text"
               name="productoSelect"
-              placeholder="nombre producto seleccionado"
+              placeholder="Nombre del producto seleccionado"
               value={inputPedido.productoSelect}
               onChange={handleChangePedido}
             />
           </div>
           <div>
             <input
+              className="form-control"
               type="text"
               name="cliente"
-              placeholder="nombre del cliente"
+              placeholder="Nombre del cliente"
               value={inputPedido.cliente}
               onChange={handleChangePedido}
             />
           </div>
-          <div>
+          </div>
+          <div className="row"> 
+          <div className="col-md-6">
             <label>
               <input
+                className="form-control"
                 type="date"
                 name="fechaDeCarga"
                 placeholder="fecha de carga"
                 value={inputPedido.fechaDeCarga}
                 onChange={handleChangePedido}
               />{" "}
-              Carga
+              Fecha de carga
             </label>
           </div>
-          <div>
+          <div className="col-md-6">
             <label>
               <input
+                className="form-control"
                 type="date"
                 name="fechaDeEntrega"
                 placeholder="fecha de entrega"
                 value={inputPedido.fechaDeEntrega}
                 onChange={handleChangePedido}
               />{" "}
-              Entrega
+              Fecha de entrega
             </label>
           </div>
+        </div>
           <div>
-            <input
-              type="number"
-              name="saldoTotal"
-              placeholder="el saldo del pedido"
-              value={inputPedido.saldoTotal}
-              onChange={handleChangePedido}
-            />
-          </div>
-          <button type="submit">Send</button>
+          <input
+            className="form-control"
+            type="number"
+            name="saldoTotal"
+            placeholder="Saldo del pedido"
+            value={inputPedido.saldoTotal}
+            onChange={handleChangePedido}
+          />
+        </div>
+          <button className="boton-send" type="submit">Enviar</button>
         </form>
       </div>
       <hr />
@@ -114,10 +128,9 @@ function Pedido() {
             console.log(event.data);
             window.location.href = `/pedido/${event.data.id}`;
           }}>
-          <Column field="id" header="Id"></Column>
-          <Column field="productoSelect" header="Producto select"></Column>
-          <Column field="cliente" header="Cliente"></Column>
-          <Column field="fechaDeCarga" header="Fecha de Carga"></Column>
+          <Column field="id" header="ID"></Column>
+          <Column field="productoSelect" header="Producto seleccionado"></Column>
+          <Column field="cliente" header="Nombre del cliencarga"></Column>
           <Column field="fechaDeEntrega" header="Fecha de entrega"></Column>
           <Column field="saldoTotal" header="Saldo total"></Column>
         </DataTable>
@@ -125,17 +138,19 @@ function Pedido() {
 
       { <div>
         {pedidoList.map((value, index) => (
-          <div key={index} className="card mt-3">
-            <p>El id del pedido {value.id}</p>
+          <div className="card">
+          <div key={index} className="mg-4">
+            <p>El ID del pedido {value.id}</p>
             <p>El producto seleccionado {value.productoSelect}</p>
             <p>El nombre del cliente {value.cliente}</p>
             <p>La fecha de carga del pedido {value.fechaDeCarga}</p>
             <p>La fecha de entrega del pedido {value.fechaDeEntrega}</p>
             <p>El saldo total del pedido $ {value.saldoTotal}</p>
+            </div>
             <div>
               <button
                 type="submit"
-                className="btn btn-danger"
+                className="btn btn-secondary"
                 onClick={() => eliminarPedido(value.id)}
               >
                 delete

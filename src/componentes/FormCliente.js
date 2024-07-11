@@ -3,6 +3,8 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { clientes } from "../datos/Datos";
 
+import logoProducto from "./IMG COMPONENTES/cliente-01.png";
+
 function FormCliente() {
   const [clienteList, setClienteList] = useState([]);
 
@@ -36,38 +38,45 @@ function FormCliente() {
      setClienteList(borrarCliente);
    };
   return (
-    <div>
-      <h2 className="text-center">Datos de los clientes</h2>
-      <div className="d-flex justify-content-center align-item-center">
+    <div className="container">
+        <div className="logo-container">
+         <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
+        </div>
+        <div className="d-flex justify-content-center align-item-center">
         <form onSubmit={handleSubmit}>
-          <div>
+        <div className="row">
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="id"
               name="id"
-              placeholder="Id del cliente"
+              placeholder="ID del cliente"
               value={inputCliente.id}
               onChange={handleChangeCliente}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="nombre"
-              placeholder="nombre del cliente"
+              placeholder="Nombre del cliente"
               value={inputCliente.nombre}
               onChange={handleChangeCliente}
             />
           </div>
-          <div>
+          <div className="col-md-12">
             <input
+              className="form-control"
               type="text"
               name="cuit"
-              placeholder="cuit del cliente"
+              placeholder="CUIT del cliente"
               value={inputCliente.cuit}
               onChange={handleChangeCliente}
             />
           </div>
-          <button type="submit">Send</button>
+          </div>
+          <button className="boton-send" type="submit">Enviar</button>
         </form>
       </div>
       <hr />
@@ -78,27 +87,29 @@ function FormCliente() {
             console.log(event.data);
             window.location.href = `/formcliente/${event.data.id}`;
           }}>
-          <Column field="id" header="Id"></Column>
-          <Column field="nombre" header="Nombre"></Column>
-          <Column field="cuit" header="Cuit"></Column>
+          <Column field="id" header="ID"></Column>
+          <Column field="nombre" header="Nombre del cliente"></Column>
+          <Column field="cuit" header="CUIT"></Column>
         </DataTable>
       </div>
 
       { <div>
         {clienteList.map((value, index) => (
-          <div key={index} className="card mt-2">
-            <p>el id del cliente es {value.id}</p>
-            <p>el nombre del cliente es {value.nombre}</p>
-            <p>el cuit del cliente es {value.cuit}</p>
+         <div className="card">
+          <div key={index} className="mt-2 ml-4">
+            <p>El ID del cliente es {value.id}</p>
+            <p>El nombre del cliente es {value.nombre}</p>
+            <p>El CUIT del cliente es {value.cuit}</p>
             <div>
               <button
                 type="submit"
-                className="btn btn-danger"
+                className="btn btn-secondary"
                 onClick={() => eliminarCliente(value.id)}
               >
                 delete
               </button>
             </div>
+          </div>
           </div>
         ))}
       </div>}
@@ -107,3 +118,4 @@ function FormCliente() {
 }
 
 export default FormCliente;
+

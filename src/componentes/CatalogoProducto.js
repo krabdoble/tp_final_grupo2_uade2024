@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { pokemon } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import axios from "axios";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
+
+import logoProducto from "./IMG COMPONENTES/catalogo-01.png";
 
 function CatalogoProducto() {
   const handleSubmit = (item) => {
@@ -51,8 +52,10 @@ function CatalogoProducto() {
   };
 
   return (
-    <div>
-      <h2 className="text-center">Catalogo de los Productos</h2>
+    <div className="container">
+      <div className="logo-container">
+      <img src={logoProducto} alt="Logo Producto" className="logo-container-" />
+      </div>
 
       <div className="container">
         <div className="row d-flex justify-content-center align-items-center">
@@ -72,7 +75,7 @@ function CatalogoProducto() {
                       />
                       <Button
                         onClick={() => eliminarProducto(item.name)}
-                        label="Cancel"
+                        label="Cancelar"
                         severity="secondary"
                         icon="pi pi-times"
                         style={{ marginLeft: "0.5em" }}
@@ -120,9 +123,9 @@ function CatalogoProducto() {
               window.location.href = `/catalogoproducto/${event.data.name}`;
             }}
           >
-            <Column field={`name`} header="NombreComercial"></Column>
-            <Column field={`precio`} header="PrecioVenta"></Column>
-            <Column field={`img`} header="FotoProducto"></Column>
+            <Column field={`name`} header="Nombre comercial"></Column>
+            <Column field={`precio`} header="Precio de venta"></Column>
+            <Column field={`img`} header="Foto del producto"></Column>
           </DataTable>
         </div>
       </div>

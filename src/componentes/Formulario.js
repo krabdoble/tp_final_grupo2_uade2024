@@ -33,84 +33,104 @@ function Formulario({onSubmit}){
     }
 
     return(
-        <div>
-        
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type='id'
-              name='id'
-              placeholder='Id de product'
-              value={inputProduct.id}
-              onChange={handleChangeProduct}
-            />
+      <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-md-6">
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                name="id"
+                placeholder="ID del producto"
+                value={inputProduct.id}
+                onChange={handleChangeProduct}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control border-color: blueviolet ;"
+                name="nombre"
+                placeholder="Nombre del producto"
+                value={inputProduct.nombre}
+                onChange={handleChangeProduct}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                name="nombreComercial"
+                placeholder="Nombre comercial del producto"
+                value={inputProduct.nombreComercial}
+                onChange={handleChangeProduct}
+              />
+            </div>
+            <div className="form-group">
+              <label>Talle:</label>
+              <select
+                className="form-control"
+                name="seleccion"
+                value={inputProduct.seleccion}
+                onChange={handleChangeProduct}
+              >
+                <option value="">...</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <input
-              type='text'
-              name='nombre'
-              placeholder='nombre de product'
-              value={inputProduct.nombre}
-              onChange={handleChangeProduct}
-            />
+          <div className="col-md-6">
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                name="precioVenta"
+                placeholder="Precio de venta"
+                value={inputProduct.precioVenta}
+                onChange={handleChangeProduct}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                name="proveedor"
+                placeholder="Proveedor del producto"
+                value={inputProduct.proveedor}
+                onChange={handleChangeProduct}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                name="precioCompra"
+                placeholder="Precio de compra"
+                value={inputProduct.precioCompra}
+                onChange={handleChangeProduct}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="file"
+                className="elegir-archivo"
+                name="fotoProducto"
+                onChange={handleChangeProduct}
+              />
+            </div>
           </div>
-          <div>
-            <input
-              type='text'
-              name='nombreComercial'
-              placeholder='nombre comercial de product'
-              value={inputProduct.nombreComercial}
-              onChange={handleChangeProduct}
-            />
-          </div>
-          <label><select name='seleccion' value={inputProduct.seleccion} onChange={handleChangeProduct}>
-          <option value=''>...</option>
-            <option value='XS'>XS</option>
-            <option value='S'>S</option>
-            <option value='M'>M</option>
-            <option value='L'>L</option>
-            <option value='XL'>XL</option>
-            
-          </select>Talle</label>
-          <div>
-            <input
-              type='text'
-              name='precioVenta'
-              placeholder='precio de venta'
-              value={inputProduct.precioVenta}
-              onChange={handleChangeProduct}
-            />
-          </div>
-          <div>
-            <input
-              type='text'
-              name='proveedor'
-              placeholder='proveedor de product'
-              value={inputProduct.proveedor}
-              onChange={handleChangeProduct}
-            />
-          </div>
-          <div>
-            <input
-              type='text'
-              name='precioCompra'
-              placeholder='precio de compra'
-              value={inputProduct.precioCompra}
-              onChange={handleChangeProduct}
-            />
-          </div>
-          <div>
-            <input
-              type='file'
-              name='fotoProducto'
-              placeholder='imagen del product'
-              onChange={handleChangeProduct}
-            />
-          </div>
-          <button type="submit">Send</button>
-        </form>
-
-        
+        </div>
+        <div className="text-center">
+          <button type="submit" className="boton-send">
+            Enviar
+          </button>
+        </div>
+      </form>
     </div>
     )
 }

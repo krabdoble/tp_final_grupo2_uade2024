@@ -2,6 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import NuevoGrafico from "./NuevoGrafico";
 
+import logoProducto from "./IMG COMPONENTES/reportes-01.png";
 
 class Reportes extends React.Component {
     constructor(props) {
@@ -45,11 +46,11 @@ class Reportes extends React.Component {
           },
           title: {
             text: 'Compras del mes',
-            align: 'left'
+            align: 'center'
           },
           grid: {
             row: {
-              colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+              colors: ['#f3f3f3', 'transparent'], 
               opacity: 0.5
             },
           },
@@ -68,7 +69,10 @@ class Reportes extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className="container">
+      <div className="logo-container">
+        <img src={logoProducto} alt="Logo Producto" className="producto-logo" />
+      </div>
           <div id="chart">
             <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={350} />
           </div>
