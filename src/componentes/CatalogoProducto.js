@@ -14,12 +14,11 @@ function CatalogoProducto() {
   const [catalogoList, setCatalogoList] = useState([]);
 
   useEffect(() => {
-    setCatalogoList(pokemon)
-  }, [])
+    setCatalogoList(pokemon);
+  }, []);
 
   const [pokemones, setPokemones] = useState([]);
 
-  
   useEffect(() => {
     const getPokemones = async () => {
       const response = await fetch(
@@ -56,10 +55,8 @@ function CatalogoProducto() {
       <h2 className="text-center">Catalogo de los Productos</h2>
 
       <div className="container">
-        <div className="row">
-
+        <div className="row d-flex justify-content-center align-items-center">
           {pokemones?.map((item, index) => {
-
             return (
               <div key={index} className="col-4">
                 <Card
@@ -83,9 +80,25 @@ function CatalogoProducto() {
                     </>
                   }
                   header={
-                    <img className="w-100" src={item.img} alt={item.name}></img>
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "400px",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <img
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                        src={item.img}
+                        alt={item.name}
+                      />
+                    </div>
                   }
-                  className="md:w-25rem mt-4"
+                  className="w-100 mt-4"
                 >
                   <p className="mt-0">
                     <span>{}</span>
@@ -98,17 +111,23 @@ function CatalogoProducto() {
         <hr />
 
         <div className="card">
-          <DataTable value={catalogoList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
-          onRowClick={(event) => {
-            console.log(event.data);
-            window.location.href = `/catalogoproducto/${event.data.name}`;
-          }}>
+          <DataTable
+            value={catalogoList}
+            tableStyle={{ minWidth: "50rem" }}
+            selectionMode="single"
+            onRowClick={(event) => {
+              console.log(event.data);
+              window.location.href = `/catalogoproducto/${event.data.name}`;
+            }}
+          >
             <Column field={`name`} header="NombreComercial"></Column>
             <Column field={`precio`} header="PrecioVenta"></Column>
             <Column field={`img`} header="FotoProducto"></Column>
           </DataTable>
         </div>
       </div>
+
+      <br></br>
     </div>
   );
 }
