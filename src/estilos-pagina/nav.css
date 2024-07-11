@@ -1,0 +1,14 @@
+.Link{
+    padding: 10px;
+    text-decoration: none;
+    background-color: brown;
+    color:white;
+}
+
+.Link:hover{
+    text-decoration: none;
+    background-color: aliceblue;
+    color:brown;
+    transition: 0.5s;
+    
+}
