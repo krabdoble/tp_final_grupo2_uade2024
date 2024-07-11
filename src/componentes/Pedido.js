@@ -130,7 +130,7 @@ function Pedido() {
           }}>
           <Column field="id" header="ID"></Column>
           <Column field="productoSelect" header="Producto seleccionado"></Column>
-          <Column field="cliente" header="Nombre del cliencarga"></Column>
+          <Column field="cliente" header="Nombre del cliente"></Column>
           <Column field="fechaDeEntrega" header="Fecha de entrega"></Column>
           <Column field="saldoTotal" header="Saldo total"></Column>
         </DataTable>
