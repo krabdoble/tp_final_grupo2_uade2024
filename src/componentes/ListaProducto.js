@@ -38,7 +38,7 @@ function ListaProducto() {
       </div>
 
       <hr />
-      <div className="card">
+      <div className="card mb-3 shadow-8 surface-card text-center border-round-sm h-100rem w-70rem font-semibold">
         <DataTable
           value={productList}
           tableStyle={{ minWidth: "50rem" }}
@@ -62,7 +62,7 @@ function ListaProducto() {
       { <div>
         <div className="row">
           {productList.map((value, index) => (
-            <div className="card">
+            <div className="card mb-3 mx-3 ml-4 shadow-8 surface-card border-round-sm h-70rem w-21rem font-semibold">
             <div key={index} className="mg-2">
               <MostrarDatos
                 id={value.id}

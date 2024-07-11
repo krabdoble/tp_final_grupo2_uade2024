@@ -84,7 +84,7 @@ function FormProveedor() {
     </div>
       <hr />
 
-      <div className="card">
+      <div className="card mb-3 shadow-8 surface-card border-round-sm h-100rem w-70rem font-semibold">
         <DataTable value={proveedorList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
           onRowClick={(event) => {
             console.log(event.data);
@@ -98,7 +98,7 @@ function FormProveedor() {
 
       { <div>
         {proveedorList.map((value, index) => (
-          <div className="card">
+          <div className="card mb-3 shadow-8 surface-card border-round-sm h-100rem w-70rem font-semibold">
           <div key={index} className="mg-4">
             <p>El ID del proveedor es {value.id}</p>
             <p>El nombre del proveedor es {value.nombre}</p>

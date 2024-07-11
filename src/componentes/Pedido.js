@@ -122,7 +122,7 @@ function Pedido() {
       </div>
       <hr />
 
-      <div className="card">
+      <div className="card mb-3 shadow-8 surface-card border-round-sm h-100rem w-70rem font-semibold">
         <DataTable value={pedidoList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
           onRowClick={(event) => {
             console.log(event.data);
@@ -138,7 +138,7 @@ function Pedido() {
 
       { <div>
         {pedidoList.map((value, index) => (
-          <div className="card">
+          <div className="card mb-3 shadow-8 surface-card border-round-sm h-100rem w-70rem font-semibold">
           <div key={index} className="mg-4">
             <p>El ID del pedido {value.id}</p>
             <p>El producto seleccionado {value.productoSelect}</p>

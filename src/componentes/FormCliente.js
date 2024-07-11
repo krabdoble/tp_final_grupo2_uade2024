@@ -81,7 +81,7 @@ function FormCliente() {
       </div>
       <hr />
 
-      <div className="card">
+      <div className="card mb-3 shadow-8 surface-card text-center border-round-sm h-100rem w-70rem font-semibold">
         <DataTable value={clienteList} tableStyle={{ minWidth: "50rem" }} selectionMode="single"
           onRowClick={(event) => {
             console.log(event.data);
@@ -95,7 +95,7 @@ function FormCliente() {
 
       { <div>
         {clienteList.map((value, index) => (
-         <div className="card">
+         <div className="card mb-3 shadow-8 surface-card border-round-sm h-100rem w-70rem font-semibold">
           <div key={index} className="mt-2 ml-4">
             <p>El ID del cliente es {value.id}</p>
             <p>El nombre del cliente es {value.nombre}</p>

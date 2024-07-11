@@ -94,18 +94,16 @@ function CatalogoProducto() {
                         style={{
                           width: "100%",
                           height: "100%",
-                          objectFit: "cover",
+                          objectFit: " hover: cover",
                         }}
                         src={item.img}
                         alt={item.name}
                       />
                     </div>
                   }
-                  className="w-100 mt-4"
+                  className="w-100 mt-4 shadow-8 surface-card text-center border-round-sm h-100rem w-70rem font-semibold border-primary-500 hover:border-orange-700 border-round surface-overlay font-bold border-3"
                 >
-                  <p className="mt-0">
-                    <span>{}</span>
-                  </p>
+                
                 </Card>
               </div>
             );
@@ -113,7 +111,7 @@ function CatalogoProducto() {
         </div>
         <hr />
 
-        <div className="card">
+        <div className="card shadow-8 surface-card text-center border-round-sm h-100rem w-70rem font-semibold">
           <DataTable
             value={catalogoList}
             tableStyle={{ minWidth: "50rem" }}
