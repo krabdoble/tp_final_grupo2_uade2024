@@ -31,12 +31,12 @@ function FormProveedor() {
     setProveedorList([...proveedorList, inputProveedor]);
   };
 
-  // const eliminarProducto = (id) => {
-  //   const tareasActualizadas = proveedorList.filter(
-  //     (inputProveedor) => inputProveedor.id !== id
-  //   );
-  //   setProveedorList(tareasActualizadas);
-  // };
+   const eliminarProducto = (id) => {
+     const tareasActualizadas = proveedorList.filter(
+       (inputProveedor) => inputProveedor.id !== id
+     );
+     setProveedorList(tareasActualizadas);
+   };
 
   return (
     <div>
@@ -87,7 +87,7 @@ function FormProveedor() {
         </DataTable>
       </div>
 
-      {/* <div>
+      { <div>
         {proveedorList.map((value, index) => (
           <div key={index} className="card mt-2">
             <p>el id del proveedor es {value.id}</p>
@@ -99,12 +99,12 @@ function FormProveedor() {
                 className="btn btn-danger"
                 onClick={() => eliminarProducto(value.id)}
               >
-                delete id {value.id}
+                delete
               </button>
             </div>
           </div>
         ))}
-      </div> */}
+      </div> }
     </div>
   );
 }

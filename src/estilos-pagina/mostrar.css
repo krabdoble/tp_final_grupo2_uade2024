@@ -1,12 +1,5 @@
-/*.producto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-*/
 table,th,td{
-    border: 2px solid black;
+    border: 2px solid red;
 }
 th,td{
     padding: 10px;
