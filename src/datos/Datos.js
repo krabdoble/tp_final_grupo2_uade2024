@@ -69,17 +69,17 @@ export const clientes = [
 
 export const pokemon = [
     {
-        nombre: "charmander",
+        name: "charmander",
         precio: 62,
         img: "img"
     },
     {
-        nombre: "ivysaur",
+        name: "ivysaur",
         precio: 142,
         img: "img"
     },
     {
-        nombre: "charizard",
+        name: "charizard",
         precio: 267,
         img: "img"
     }
