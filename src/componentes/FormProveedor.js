@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/*import React, { useState, useEffect } from "react";
 import { proveedores } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -120,4 +120,88 @@ function FormProveedor() {
   );
 }
 
+export default FormProveedor;*/
+
+
+import React, { useState } from "react";
+
+
+function FormProveedor() {
+ // const [clienteList, setClienteList] = useState([]);
+  const [inputProveedor, setInputProveedor] = useState({
+   // id: "",
+    nombre: "",
+    cuit: "",
+  });
+
+  const handleChangeProveedor = (event) => {
+    const { name, value } = event.target;
+    setInputProveedor({
+      ...inputProveedor,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/api/proveedor/guardar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputProveedor),
+      });
+      if (response.ok) {
+        alert('Datos guardados exitosamente!');
+      } else {
+        alert('Error al guardar los datos');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+ /* const eliminarCliente = (id) => {
+    const borrarCliente = clienteList.filter(
+      (inputCliente) => inputCliente.id !== id
+    );
+    setClienteList(borrarCliente);
+  };*/
+  return (
+    <div className="container">
+      <h2 className="text-center">Datos de los proveedores</h2>
+      <div className="d-flex justify-content-center align-item-center">
+      <form onSubmit={handleSubmit}>
+      <div className="row">
+        <div className="col-md-12">
+          <input
+            className="form-control"
+            type="text"
+            name="nombre"
+            placeholder="Nombre del proveedor"
+            value={inputProveedor.nombre}
+            onChange={handleChangeProveedor}
+          />
+        </div>
+        <div className="col-md-12">
+          <input
+            className="form-control"
+            type="text"
+            name="cuit"
+            placeholder="CUIT del proveedor"
+            value={inputProveedor.cuit}
+            onChange={handleChangeProveedor}
+          />
+        </div>
+        </div>
+        <button className="boton-send" type="submit">Enviar</button>
+      </form>
+    </div>
+    </div>
+  );
+}
+
 export default FormProveedor;
+
+

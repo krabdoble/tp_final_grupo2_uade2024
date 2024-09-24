@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/*import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { clientes } from "../datos/Datos";
@@ -113,6 +113,87 @@ function FormCliente() {
           </div>
         ))}
       </div>}
+    </div>
+  );
+}
+
+export default FormCliente;*/
+
+import React, { useState } from "react";
+
+
+function FormCliente() {
+ // const [clienteList, setClienteList] = useState([]);
+  const [inputCliente, setInputCliente] = useState({
+   // id: "",
+    nombre: "",
+    cuit: "",
+  });
+
+  const handleChangeCliente = (event) => {
+    const { name, value } = event.target;
+    setInputCliente({
+      ...inputCliente,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/api/cliente/guardar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputCliente),
+      });
+      if (response.ok) {
+        alert('Datos guardados exitosamente!');
+      } else {
+        alert('Error al guardar los datos');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+ /* const eliminarCliente = (id) => {
+    const borrarCliente = clienteList.filter(
+      (inputCliente) => inputCliente.id !== id
+    );
+    setClienteList(borrarCliente);
+  };*/
+  return (
+    <div>
+      <h2 className="text-center">Datos de los clientes</h2>
+      <div className="d-flex justify-content-center align-item-center">
+        <form onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-md-12">
+            <input
+              className="form-control"
+              type="text"
+              name="nombre"
+              placeholder="Nombre del cliente"
+              value={inputCliente.nombre}
+              onChange={handleChangeCliente}
+            />
+          </div>
+          <div className="col-md-12">
+            <input
+              className="form-control"
+              type="text"
+              name="cuit"
+              placeholder="CUIT del cliente"
+              value={inputCliente.cuit}
+              onChange={handleChangeCliente}
+            />
+          </div>
+          </div>
+          <button className="boton-send" type="submit">Enviar</button>
+        </form>
+      </div>
     </div>
   );
 }

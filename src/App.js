@@ -1,11 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./componentes/Navbar";
-import ListaProducto from "./componentes/ListaProducto";
+import FormProductoInfo from "./componentes/FormProductoInfo";
+import ListaProductoInfo from "./componentes/ListaProductoInfo";
+import ListaProveedor from "./componentes/ListaProveedor";
 import DatosProducto from "./datos/DatosProducto";
 import FormProveedor from "./componentes/FormProveedor";
 import DatosProveedor from "./datos/DatosProveedor";
 import FormCliente from "./componentes/FormCliente";
+import ListaCliente from "./componentes/ListaCliente";
 import DatosClientes from "./datos/DatosCliente";
 import CatalogoProducto from "./componentes/CatalogoProducto";
 import DatosCatalogo from "./datos/DatosCatalogo";
@@ -28,9 +31,13 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+        <Route
+            path="/formproducto"
+            element={<FormProductoInfo></FormProductoInfo>}
+          ></Route>
           <Route
             path="/listaproducto"
-            element={<ListaProducto></ListaProducto>}
+            element={<ListaProductoInfo></ListaProductoInfo>}
           ></Route>
           <Route
             path="/listaproducto/:id"
@@ -41,12 +48,20 @@ function App() {
             element={<FormProveedor></FormProveedor>}
           ></Route>
           <Route
+            path="/listaproveedor"
+            element={<ListaProveedor></ListaProveedor>}
+          ></Route>
+          <Route
             path="formproveedor/:id"
             element={<DatosProveedor></DatosProveedor>}
           ></Route>
           <Route
             path="/formcliente"
             element={<FormCliente></FormCliente>}
+          ></Route>
+          <Route
+            path="/listacliente"
+            element={<ListaCliente></ListaCliente>}
           ></Route>
           <Route
             path="formcliente/:id"

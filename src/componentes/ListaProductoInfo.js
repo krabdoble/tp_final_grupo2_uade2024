@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Formulario from "./Formulario";
+/*import React, { useState, useEffect } from "react";
+import FormProductoInfo from "./FormProductoInfo";
 import { productos } from "../datos/Datos";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -34,7 +34,7 @@ function ListaProducto() {
       </div>
 
       <div className="d-flex justify-content-center align-item-center">
-        <Formulario onSubmit={handleFormSubmit} />
+        <FormProductoInfo onSubmit={handleFormSubmit} />
       </div>
 
       <hr />
@@ -83,6 +83,44 @@ function ListaProducto() {
   );
 }
 
-export default ListaProducto;
+export default ListaProducto;*/
+
+import React, { useEffect, useState } from 'react';
+
+
+const ListaProductoInfo = () => {
+    const [productoInfoList, setProductoInfoList] = useState([]);
+  //const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3000/api/producto/el-producto');
+      const data = await response.json();
+      setProductoInfoList(data);
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h2 className="text-center">Lista de Productos</h2>
+      <div className="row">
+      <ul>
+        {productoInfoList.map((producto) => (
+          <div className="card mb-3 mx-3 ml-4 shadow-8 surface-card border-round-sm h-70rem w-21rem font-semibold">
+          <li key={producto.id} className="mg-2">{producto.id} - {producto.nombre} - {producto.nombreComercial} - 
+          {producto.seleccion} - {producto.precioVenta} - {producto.proveedor} . 
+          {producto.precioCompra} - {producto.fotoProducto} </li>
+          </div>
+        ))}
+      </ul>
+      </div>
+    </div>
+  );
+};
+
+export default ListaProductoInfo;
+
+
 
 
